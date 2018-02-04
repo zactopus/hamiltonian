@@ -8,10 +8,12 @@ app.use(express.static('public'))
 app.get('/'  + process.env.BOT_ENDPOINT, (req, res) => {
   res.status(200).send('hamilton path generating')
   
-  console.info('generating gif', new Date().toGMTString())
+  console.info('generating hamiltonian path gif', new Date().toGMTString())
   generateGif(() => {
     console.info('gif generated', new Date().toGMTString())
-    tweetGif()
+    setTimeout(() => { // timeout cause sometimes twitter 400s ¯\_(ツ)_/¯
+      tweetGif()
+    }, 30000)
   })
 })
 
