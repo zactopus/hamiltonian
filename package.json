@@ -10,9 +10,11 @@
     "canvas": "^1.6.6",
     "express": "^4.15.4",
     "gifencoder": "^1.1.0",
-    "twitter": "^1.7.1"
+    "twitter": "^1.7.1",
+    "color-generator": "^0.1.0"
   },
   "engines": {
     "node": "6.9.1"
-  }
+  },
+  "license": "MIT"
 }
