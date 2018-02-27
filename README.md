@@ -11,3 +11,8 @@ i then worked out what i was trying to find was a hamilton pathn
 then credit to algorithm goes to:
 
 http://clisby.net/projects/hamiltonian_path/
+
+## install
+
+1. `npm install`
+2. add credentials to `.env`
