@@ -28,6 +28,6 @@ app.get('/', (req, res) => {
   res.status(200).send('<img src="myanimated.gif" />')
 })
 
-app.listen(3000, () => {
-  console.log('hamiltonian app listening on port 3000')
+app.listen(process.env.PORT, () => {
+  console.log(`hamiltonian app listening on port ${process.env.PORT}`)
 })
