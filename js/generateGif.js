@@ -46,6 +46,10 @@ function drawPath(n, xmax, ymax, path, callback) {
     
   let rgbLeft = randomColour()
   let rgbRight = randomColour()
+
+  if (isGradient) {
+    rgbRight = rgbLeft
+  }
   
   if (whiteOnColour) {
     rgbLeft = [255, 255, 255]
@@ -53,11 +57,13 @@ function drawPath(n, xmax, ymax, path, callback) {
   }
   
   const encoder = new GIFEncoder(440, 220)
+  
+  const quality = (xmax === 38) ? 5 : 10
 
   encoder.start()
   encoder.setRepeat(0)  // 0 for repeat, -1 for no-repeat
   encoder.setFrameRate(20)
-  encoder.setQuality(10) // image quality. 10 is default.
+  encoder.setQuality(quality) // image quality. 10 is default.
   
   encoder.addFrame(ctx)
   encoder.addFrame(ctx)
@@ -92,8 +98,8 @@ function drawLine(path, i, pad, n, sw, sh, rgbLeft, rgbRight) {
 }
 
 function createAndDrawPath (callback) {
-  whiteOnColour = (getRandomInt(10) > 0)
-  isGradient = (getRandomInt(10) > 0)
+  whiteOnColour = (getRandomInt(10) > 5)
+  isGradient = (getRandomInt(10) > 5)
 
   canvas = new Canvas(440, 220)
 
@@ -121,7 +127,6 @@ function createAndDrawPath (callback) {
   )
 
   const [n, xmax, ymax, path] = generatePath()
-  console.info('generating gif', new Date().toGMTString())
   drawPath(n, xmax, ymax, path, callback)
 }
 
