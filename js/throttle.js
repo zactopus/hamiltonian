@@ -9,7 +9,7 @@ function checkIfGeneratedWithinAnHour (callback) {
 
   const lastGeneratedTime = fs.readFileSync(pathToThrottleFile).toString()
 
-  const withinAnHour = (new Date() - new Date(lastGeneratedTime) < ONE_HOUR)
+  const withinAnHour = ((new Date) - new Date(lastGeneratedTime) < ONE_HOUR)
   if (withinAnHour) {
     return callback(true)
   }
